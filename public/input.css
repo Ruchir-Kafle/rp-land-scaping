@@ -77,10 +77,6 @@ body {
     background-color: hsla(var(--primary), 0.9);
 }
 
-.bg-black\/50 {
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
 .hover\:text-primary:hover {
     color: hsl(var(--primary));
 }
