@@ -1,5 +1,9 @@
-const carouselTemplate = document.querySelector(`.carousel-template`);
+const carouselTemplate = document.querySelector(`template.carousel-template`);
+const starTemplate = document.querySelector(`template.star-template`);
+const reviewTemplate = document.querySelector(`template.review-template`);
+const serviceTemplate = document.querySelector(`template.service-template`);
 
+const imagesPath = "./images/";
 
 const carousels = {
     "Hedge Trimming": ["HedgingBefore.jpeg", "HedgingAfter.jpeg"],
@@ -7,7 +11,21 @@ const carousels = {
     "Mulching": ["MulchingBefore.jpeg", "MulchingAfter.jpeg"],
 };
 
-const imagesPath = "../images/";
+const reviews = [
+    "Quote coming soon!",
+    "Quote coming soon!",
+    "Quote coming soon!"
+]
+
+const services = {
+    "Routine Lawn Care": "Weekly or bi-weekly mowing, edging, trimming, and driveway blowing—everything you need to keep your lawn sharp and healthy.",
+    "Spring/Fall Cleanup": "Get your lawn ready for the changing seasons with our spring and fall cleanup services. Leaf blowing, stick removal, debris removal, and more included.",
+    "Mulching & Bed Edging": "Mulching services offered. We can provide the mulch, edge your beds, and clear out weeds and debris.",
+    "Weeding": "Routine or one-time weeding of beds at an affordable price to keep your property neat and low-maintenance.",
+    "Hedging": "Shaping and styling your bushes so they look crisp, healthy, and well-kept.",
+    "Pressure Washing": "Driveways, Patios, Houses, Fences? No problem! We offer a wide range of pressure washing services.",
+    "More!": "Got something else in mind? Just ask—we’re flexible and ready to help with most outdoor projects."
+}
 
 
 
@@ -41,17 +59,17 @@ function generateCarousels() {
     const carouselContainer = document.querySelector(`.carousel-container`);
     carouselContainer.innerHTML = ``;
 
-    Object.keys(carousels).forEach((value, index) => {
-        const cloneTemplate = carouselTemplate.content.cloneNode(true);
-        const cloneCarousel = cloneTemplate.querySelector(`.carousel`);
-        const cloneCarouselCaption = cloneTemplate.querySelector(`.carousel-caption`);
-        const buttons = cloneTemplate.querySelectorAll(`button`);
+    Object.keys(carousels).forEach((carousel, carouselIndex) => {
+        const cloneCarouselTemplate = carouselTemplate.content.cloneNode(true);
+        const cloneCarousel = cloneCarouselTemplate.querySelector(`.carousel`);
+        const cloneCarouselCaption = cloneCarouselTemplate.querySelector(`.carousel-caption`);
+        const buttons = cloneCarouselTemplate.querySelectorAll(`button`);
 
-        cloneCarousel.setAttribute("data-carousel", index);
-        carousels[value].forEach((image, i) => {
+        cloneCarousel.setAttribute("data-carousel", carouselIndex);
+        carousels[carousel].forEach((image, imageIndex) => {
             const newImage = document.createElement(`img`);
             newImage.src = imagesPath + image;
-            newImage.alt = value + (i == 0 ? " Before" : " After");
+            newImage.alt = carousel + (imageIndex == 0 ? " Before" : " After");
             newImage.className = "w-full h-full object-cover min-w-full";
 
             cloneCarousel.appendChild(newImage);
@@ -59,20 +77,66 @@ function generateCarousels() {
 
         buttons.forEach((button, buttonIndex) => {
             const order = buttonIndex == 0 ? "data-carousel-prev": "data-carousel-next";
-            button.setAttribute(order, index);
+            button.setAttribute(order, carouselIndex);
         });
 
-        cloneCarouselCaption.innerHTML = value + " Before/After";
+        cloneCarouselCaption.innerHTML = carousel + " Before/After";
 
-        carouselContainer.appendChild(cloneTemplate);
+        carouselContainer.appendChild(cloneCarouselTemplate);
     });
     
+}
+
+function generateServices() {
+    const serviceContainer = document.querySelector(`.services-container`);
+    serviceContainer.innerHTML = ``;
+
+    Object.keys(services).forEach((service) => {
+        const cloneServiceTemplate = serviceTemplate.content.cloneNode(true);
+        const cloneHeadline = cloneServiceTemplate.querySelector(`.headline`);
+        const cloneDescription = cloneServiceTemplate.querySelector(`.description`);
+        
+        cloneHeadline.innerHTML = service;
+        cloneDescription.innerHTML = services[service];
+
+        serviceContainer.appendChild(cloneServiceTemplate);
+    });
+    
+}
+
+
+function generateReviews() {
+    const reviewsContainer = document.querySelector(`.reviews-container`);
+    reviewsContainer.innerHTML = ``;
+
+    reviews.forEach((review, reviewIndex) => {
+        const cloneReviewTemplate = reviewTemplate.content.cloneNode(true);
+        const cloneClient = cloneReviewTemplate.querySelector(`.client`);
+        const cloneStarContainer = cloneReviewTemplate.querySelector(`.star-container`);
+        const cloneQuote = cloneReviewTemplate.querySelector(`.quote`);
+
+        cloneClient.innerHTML = "Client " + (reviewIndex + 1);
+        
+        for (let i = 0; i < 5; i++) {
+            const cloneStarTemplate = starTemplate.content.cloneNode(true);
+
+            cloneStarContainer.appendChild(cloneStarTemplate);
+        }
+
+        cloneQuote.innerHTML = review;
+
+        reviewsContainer.appendChild(cloneReviewTemplate);
+    });
+
 }
 
 
 function main() {
     generateCarousels()
     carouselImageSwitching();
+
+    generateServices();
+    generateReviews();
 
 }
 

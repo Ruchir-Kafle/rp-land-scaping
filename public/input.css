@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+
+:root {
+    --background: 60 56% 91%;
+    --foreground: 240 10% 3.9%;
+    --card: 60 56% 94%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 60 56% 91%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 120 25% 41%;
+    --primary-foreground: 120 25% 95%;
+    --secondary: 60 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 60 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 14 71% 62%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 60 20% 80%;
+    --input: 60 20% 80%;
+    --ring: 120 25% 41%;
+}
+
+body {
+    font-family: 'PT Sans', sans-serif;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+}
+
+.font-headline {
+    font-family: 'Playfair Display', serif;
+}
+
+.bg-primary {
+    background-color: hsl(var(--primary));
+}
+
+.bg-primary:hover {
+    background-color: lightgreen;
+}
+
+.text-primary {
+    color: hsl(var(--primary));
+}
+
+.text-primary-foreground {
+    color: hsl(var(--primary-foreground));
+}
+
+.bg-card {
+    background-color: hsl(var(--card));
+}
+
+.text-muted-foreground {
+    color: hsl(var(--muted-foreground));
+}
+
+.border-border {
+    border-color: hsl(var(--border));
+}
+
+.bg-background {
+    background-color: hsl(var(--background));
+}
+
+.ring-ring {
+    --tw-ring-color: hsl(var(--ring));
+}
+
+.border-input {
+    border-color: hsl(var(--input));
+}
+
+.bg-primary\/90 {
+    background-color: hsla(var(--primary), 0.9);
+}
+
+.bg-black\/50 {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hover\:text-primary:hover {
+    color: hsl(var(--primary));
+}
+
+.hover\:bg-primary\/90:hover {
+    background-color: rgb(6, 85, 6);
+}
+
+.shadow-sm {
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}

@@ -5,116 +5,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RP Landscaping</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="output.css">
   <script defer src="drake.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=PT+Sans:wght@400;700&display=swap"
     rel="stylesheet" />
-  <style>
-    :root {
-      --background: 60 56% 91%;
-      --foreground: 240 10% 3.9%;
-      --card: 60 56% 94%;
-      --card-foreground: 240 10% 3.9%;
-      --popover: 60 56% 91%;
-      --popover-foreground: 240 10% 3.9%;
-      --primary: 120 25% 41%;
-      --primary-foreground: 120 25% 95%;
-      --secondary: 60 4.8% 95.9%;
-      --secondary-foreground: 240 5.9% 10%;
-      --muted: 60 4.8% 95.9%;
-      --muted-foreground: 240 3.8% 46.1%;
-      --accent: 14 71% 62%;
-      --accent-foreground: 0 0% 100%;
-      --destructive: 0 84.2% 60.2%;
-      --destructive-foreground: 0 0% 98%;
-      --border: 60 20% 80%;
-      --input: 60 20% 80%;
-      --ring: 120 25% 41%;
-    }
-
-    body {
-      font-family: 'PT Sans', sans-serif;
-      background-color: hsl(var(--background));
-      color: hsl(var(--foreground));
-    }
-
-    .font-headline {
-      font-family: 'Playfair Display', serif;
-    }
-
-    .bg-primary {
-      background-color: hsl(var(--primary));
-    }
-
-    .bg-primary:hover {
-      background-color: lightgreen;
-    }
-
-    .text-primary {
-      color: hsl(var(--primary));
-    }
-
-    .text-primary-foreground {
-      color: hsl(var(--primary-foreground));
-    }
-
-    .bg-card {
-      background-color: hsl(var(--card));
-    }
-
-    .text-muted-foreground {
-      color: hsl(var(--muted-foreground));
-    }
-
-    .border-border {
-      border-color: hsl(var(--border));
-    }
-
-    .bg-background {
-      background-color: hsl(var(--background));
-    }
-
-    .ring-ring {
-      --tw-ring-color: hsl(var(--ring));
-    }
-
-    .border-input {
-      border-color: hsl(var(--input));
-    }
-
-    .bg-primary\/90 {
-      background-color: hsla(var(--primary), 0.9);
-    }
-
-    .bg-black\/50 {
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .hover\:text-primary:hover {
-      color: hsl(var(--primary));
-    }
-
-    .hover\:bg-primary\/90:hover {
-      background-color: rgb(6, 85, 6);
-    }
-
-    .shadow-sm {
-      box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    }
-
-  </style>
 </head>
 
 <body class="antialiased">
 
   <div class="flex flex-col min-h-screen">
-    <header class="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-sm">
+    <header class="sticky top-0 z-50 w-full bg-white/50 backdrop-blur-sm">
       <div class="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <a href="/" class="flex items-center gap-2">
-          <img src="../images/RPLandscapingLogo8Transparent.png" alt="RP Landscaping Logo" width="150" height="38" class="object-contain" />
+          <img src="images/RPLandscapingLogo8Transparent.png" alt="RP Landscaping Logo" width="150" height="38" class="object-contain" />
         </a>
         <div class="flex items-center gap-4">
           <a href="tel:+7745599448"
@@ -142,52 +48,54 @@
         </div>
       </div>
     </header>
-    <main class="flex-1">
-      <section class="relative w-full py-24 md:py-32 lg:py-40 flex items-center justify-center text-center text-white">
-        <div class="absolute inset-0 bg-black/50 z-10"></div>
-        <img src="../images/Adjustable-x-1080-FirstPicture.JPG" alt="A Beautifully Landscaped lawn."
-          data-ai-hint="landscaped garden" class="absolute inset-0 w-full h-full object-cover z-0" />
-        <div class="container px-4 md:px-6 z-20">
-          <h1 class="text-4xl font-headline font-bold tracking-tight sm:text-5xl md:text-6xl text-white drop-shadow-md">
-            RP Landscaping
-          </h1>
-          <!-- <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-200 drop-shadow">
-            TEMP: We create stunning, sustainable landscapes that you'll love for years to come.
-          </p> -->
-          <div class="mt-8">
-            <a href="#contact"
-              class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8">Start Your Project</a>
-          </div>
-        </div>
-      </section>
 
-      <section id="why-us" class="w-full py-16 md:py-24 bg-card">
-        <div class="container mx-auto px-4 md:px-6">
-          <div class="text-center">
-            <h2 class="text-3xl font-headline font-bold tracking-tight sm:text-4xl">Why Choose RP Landscaping?</h2>
-            <!-- <p class="mt-4 max-w-2xl mx-auto text-muted-foreground">
-              TEMP: We're passionate about creating outdoor spaces that are both beautiful and functional.
-            </p> -->
-          </div>
-          <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="flex flex-col items-center text-center">
-              <img src="../images/money-svgrepo-com.svg" width="30" height="30" alt="Affordable Pricing Icon" class="w-8 h-8 text-primary">
-              <h3 class="mt-4 text-xl font-bold font-headline">Professional Quality, Affordable Pricing</h3>
-              <p class="mt-2 text-muted-foreground">We provide top-quality landscaping without the inflated costs. No oversized trucks, no corporate overhead—just great work at a fair price.</p>
+
+    <main class="flex-1">
+        <section class="relative w-full py-24 md:py-32 lg:py-40 flex items-center justify-center text-center text-white">
+            <div class="absolute inset-0 bg-black/50 z-10"></div>
+            <img src="images/Adjustable-x-1080-FirstPicture.JPG" alt="A Beautifully Landscaped lawn."
+            data-ai-hint="landscaped garden" class="absolute inset-0 w-full h-full object-cover z-0" />
+            <div class="container px-4 md:px-6 z-20">
+            <h1 class="text-4xl font-headline font-bold tracking-tight sm:text-5xl md:text-6xl text-white drop-shadow-md">
+                RP Landscaping
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-200 drop-shadow">
+                Creating stunning landscapes that you'll love for years to come.
+            </p>
+            <div class="mt-8">
+                <a href="#contact"
+                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8">Start Your Project</a>
             </div>
-            <div class="flex flex-col items-center text-center">
-              <img src="../images/people-svgrepo-com.svg" width="30" height="30" alt="Affordable Pricing Icon" class="w-8 h-8 text-primary">
-              <h3 class="mt-4 text-xl font-bold font-headline">Personalized Experience</h3>
-              <p class="mt-2 text-muted-foreground">With smaller crews and fewer houses per week, we give each property the attention it deserves. Every yard gets the care and detail that makes it stand out.</p>
             </div>
-            <div class="flex flex-col items-center text-center">
-              <img src="../images/cycle-svgrepo-com.svg" width="30" height="30" alt="Affordable Pricing Icon" class="w-8 h-8 text-primary">
-              <h3 class="mt-4 text-xl font-bold font-headline">Support Local Entrepreneurship</h3>
-              <p class="mt-2 text-muted-foreground">We’re a team of hardworking high school and college students from the community. 100% of profit goes to local entrepreneurship with 0% going to a corprate job.</p>
+        </section>
+
+        <section id="why-us" class="w-full py-16 md:py-24 bg-card">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="text-center">
+                    <h2 class="text-3xl font-headline font-bold tracking-tight sm:text-4xl">Why Choose RP Landscaping?</h2>
+                    <!-- <p class="mt-4 max-w-2xl mx-auto text-muted-foreground">
+                    TEMP: We're passionate about creating outdoor spaces that are both beautiful and functional.
+                    </p> -->
+                </div>
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="flex flex-col items-center text-center">
+                        <img src="images/money-svgrepo-com.svg" width="30" height="30" alt="Affordable Pricing Icon" class="w-8 h-8 text-primary">
+                        <h3 class="mt-4 text-xl font-bold font-headline">Professional Quality, Affordable Pricing</h3>
+                        <p class="mt-2 text-muted-foreground">We provide top-quality landscaping without the inflated costs. No oversized trucks, no corporate overhead—just great work at a fair price.</p>
+                    </div>
+                    <div class="flex flex-col items-center text-center">
+                        <img src="images/people-svgrepo-com.svg" width="30" height="30" alt="Affordable Pricing Icon" class="w-8 h-8 text-primary">
+                        <h3 class="mt-4 text-xl font-bold font-headline">Personalized Experience</h3>
+                        <p class="mt-2 text-muted-foreground">With smaller crews and fewer houses per week, we give each property the attention it deserves. Every yard gets the care and detail that makes it stand out.</p>
+                    </div>
+                    <div class="flex flex-col items-center text-center">
+                        <img src="images/cycle-svgrepo-com.svg" width="30" height="30" alt="Affordable Pricing Icon" class="w-8 h-8 text-primary">
+                        <h3 class="mt-4 text-xl font-bold font-headline">Support Local Entrepreneurship</h3>
+                        <p class="mt-2 text-muted-foreground">We’re a team of hardworking high school and college students from the community. 100% of profit goes to local entrepreneurship with 0% going to a corprate job.</p>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
       <section id="services" class="w-full py-16 md:py-24">
         <div class="container mx-auto px-4 md:px-6">
@@ -198,84 +106,7 @@
             </p> -->
           </div>
           <div class="mt-12 max-w-4xl mx-auto">
-            <ul class="space-y-8">
-              <li class="flex items-start gap-4">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="w-6 h-6 text-primary mt-1 flex-shrink-0">
-                  <path d="M20 6 9 17l-5-5"></path>
-                </svg>
-                <div>
-                  <h3 class="text-2xl font-bold font-headline">Routine Lawn Care</h3>
-                  <p class="mt-1 text-muted-foreground">Weekly or bi-weekly mowing, edging, trimming, and driveway blowing—everything you need to keep your lawn sharp and healthy.</p>
-                </div>
-              </li>
-              <li class="flex items-start gap-4">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="w-6 h-6 text-primary mt-1 flex-shrink-0">
-                  <path d="M20 6 9 17l-5-5"></path>
-                </svg>
-                <div>
-                  <h3 class="text-2xl font-bold font-headline">Spring/Fall Cleanup</h3>
-                  <p class="mt-1 text-muted-foreground">Get your lawn ready for the changing seasons with our spring and fall cleanup services. Leaf blowing, stick removal, debris removal, and more included.</p>
-                </div>
-              </li>
-              <li class="flex items-start gap-4">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="w-6 h-6 text-primary mt-1 flex-shrink-0">
-                  <path d="M20 6 9 17l-5-5"></path>
-                </svg>
-                <div>
-                  <h3 class="text-2xl font-bold font-headline">Mulching & Bed Edging</h3>
-                  <p class="mt-1 text-muted-foreground">Mulching services offered. We can provide the mulch, edge your beds, and clear out weeds and debris.</p>
-                </div>
-              </li>
-              <li class="flex items-start gap-4">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="w-6 h-6 text-primary mt-1 flex-shrink-0">
-                  <path d="M20 6 9 17l-5-5"></path>
-                </svg>
-                <div>
-                  <h3 class="text-2xl font-bold font-headline">Weeding</h3>
-                  <p class="mt-1 text-muted-foreground">Routine or one-time weeding of beds at an affordable price to keep your property neat and low-maintenance.</p>
-                </div>
-              </li>
-              <li class="flex items-start gap-4">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="w-6 h-6 text-primary mt-1 flex-shrink-0">
-                  <path d="M20 6 9 17l-5-5"></path>
-                </svg>
-                <div>
-                  <h3 class="text-2xl font-bold font-headline">Hedging</h3>
-                  <p class="mt-1 text-muted-foreground">Shaping and styling your bushes so they look crisp, healthy, and well-kept.</p>
-                </div>
-              </li>
-              <li class="flex items-start gap-4">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="w-6 h-6 text-primary mt-1 flex-shrink-0">
-                  <path d="M20 6 9 17l-5-5"></path>
-                </svg>
-                <div>
-                  <h3 class="text-2xl font-bold font-headline">Pressure Washing</h3>
-                  <p class="mt-1 text-muted-foreground">Driveways, Patios, Houses, Fences? No problem! We offer a wide range of pressure washing services.</p>
-                </div>
-              </li>
-              <li class="flex items-start gap-4">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="w-6 h-6 text-primary mt-1 flex-shrink-0">
-                  <path d="M20 6 9 17l-5-5"></path>
-                </svg>
-                <div>
-                  <h3 class="text-2xl font-bold font-headline">More!</h3>
-                  <p class="mt-1 text-muted-foreground">Got something else in mind? Just ask—we’re flexible and ready to help with most outdoor projects.</p>
-                </div>
-              </li>
+            <ul class="services-container space-y-8">
             </ul>
           </div>
         </div>
@@ -289,155 +120,10 @@
               We're proud of the relationships we've built and the landscapes we've created.
             </p> -->
           </div>
-          <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="rounded-lg border border-border bg-card text-card-foreground shadow-sm">
-              <div class="p-6 pt-6">
-                <div class="flex items-center mb-4">
-                  <span class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full"><img
-                      class="aspect-square h-full w-full" src="https://placehold.co/40x40.png?text=RP"></span>
-                  <div class="ml-4">
-                    <p class="font-bold">Client 1</p>
-                    <div class="flex text-yellow-500">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="w-4 h-4 fill-current">
-                        <polygon
-                          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                        </polygon>
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="w-4 h-4 fill-current">
-                        <polygon
-                          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                        </polygon>
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="w-4 h-4 fill-current">
-                        <polygon
-                          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                        </polygon>
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="w-4 h-4 fill-current">
-                        <polygon
-                          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                        </polygon>
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="w-4 h-4 fill-current">
-                        <polygon
-                          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                        </polygon>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-                <p class="text-muted-foreground italic">"Quotes Coming Soon!"</p>
-              </div>
-            </div>
-            <div class="rounded-lg border border-border bg-card text-card-foreground shadow-sm">
-              <div class="p-6 pt-6">
-                <div class="flex items-center mb-4">
-                  <span class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full"><img
-                      class="aspect-square h-full w-full" src="https://placehold.co/40x40.png?text=RP"></span>
-                  <div class="ml-4">
-                    <p class="font-bold">Client 2</p>
-                    <div class="flex text-yellow-500">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="w-4 h-4 fill-current">
-                        <polygon
-                          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                        </polygon>
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="w-4 h-4 fill-current">
-                        <polygon
-                          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                        </polygon>
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="w-4 h-4 fill-current">
-                        <polygon
-                          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                        </polygon>
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="w-4 h-4 fill-current">
-                        <polygon
-                          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                        </polygon>
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="w-4 h-4 fill-current">
-                        <polygon
-                          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                        </polygon>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-                <p class="text-muted-foreground italic">"Quotes Coming Soon!"</p>
-              </div>
-            </div>
-            <div class="rounded-lg border border-border bg-card text-card-foreground shadow-sm">
-              <div class="p-6 pt-6">
-                <div class="flex items-center mb-4">
-                  <span class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full"><img
-                      class="aspect-square h-full w-full" src="https://placehold.co/40x40.png?text=RP"></span>
-                  <div class="ml-4">
-                    <p class="font-bold">Client 3</p>
-                    <div class="flex text-yellow-500">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="w-4 h-4 fill-current">
-                        <polygon
-                          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                        </polygon>
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="w-4 h-4 fill-current">
-                        <polygon
-                          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                        </polygon>
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="w-4 h-4 fill-current">
-                        <polygon
-                          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                        </polygon>
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="w-4 h-4 fill-current">
-                        <polygon
-                          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                        </polygon>
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="w-4 h-4 fill-current">
-                        <polygon
-                          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                        </polygon>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-                <p class="text-muted-foreground italic">"Quotes Coming Soon!"</p>
-              </div>
-            </div>
+
+          <div class="reviews-container mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
           </div>
+        
         </div>
       </section>
 
@@ -533,7 +219,7 @@
     <footer class="bg-primary/90 text-primary-foreground py-8">
       <div class="container mx-auto px-4 md:px-6 flex flex-col sm:flex-row items-center justify-between">
         <div class="flex items-center gap-2">
-          <img src="../images/RPLandscapingLogo8Transparent.png" alt="RP Landscaping Logo" width="150" height="38"
+          <img src="images/RPLandscapingLogo8Transparent.png" alt="RP Landscaping Logo" width="150" height="38"
             class="object-contain filter" />
         </div>
         <div class="flex items-center gap-4 mt-4 sm:mt-0">
@@ -559,7 +245,7 @@
                 </div>    
 
                 <div class="flex justify-center absolute h-full top-1/2 w-[52px] transform -translate-y-1/2 bg-gradient-to-r from-black/50 to-transparent">
-                    <button class=" text-primary-foreground rounded-full p-2 hover:bg-primary">
+                    <button class=" text-primary-foreground rounded-full p-2 cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
                             <path d="M15 18l-6-6 6-6"></path>
                         </svg>
@@ -567,7 +253,7 @@
                 </div>
 
                 <div class="flex justify-center absolute h-full top-1/2 right-0 w-[52px] transform -translate-y-1/2 bg-gradient-to-r from-transparent to-black/50">
-                    <button class=" text-primary-foreground rounded-full p-2 hover:bg-primary">
+                    <button class=" text-primary-foreground rounded-full p-2 cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
                             <path d="M9 18l6-6-6-6"></path>
                         </svg>
@@ -577,6 +263,50 @@
             </div>
             
             <p class="carousel-caption text-center mt-8"></p>
+        </div>
+    </template>
+
+    <template class="service-template">
+        <li class="flex items-start gap-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="w-6 h-6 text-primary mt-1 flex-shrink-0">
+                <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+            <div>
+                <h3 class="headline text-2xl font-bold font-headline"></h3>
+                <p class="description mt-1 text-muted-foreground"></p>
+            </div>
+        </li>
+    </template>
+
+    <template class="star-template">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+        fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" class="w-4 h-4 fill-current">
+            <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+            </polygon>
+        </svg>
+    </template>
+
+    <template class="review-template">
+        <div class="rounded-lg border border-border bg-card text-card-foreground shadow-sm">
+            <div class="p-6 pt-6">
+                <div class="flex items-center mb-4">
+                    <span class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full">
+                        <img class="aspect-square h-full w-full" src="https://placehold.co/40x40.png?text=RP">
+                    </span>
+                    
+                    <div class="ml-4">
+                        <p class="client font-bold"></p>
+                        <div class="star-container flex text-yellow-500">
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="quote text-muted-foreground italic">"Quotes Coming Soon!"</p>
+            </div>
         </div>
     </template>
 </html>
