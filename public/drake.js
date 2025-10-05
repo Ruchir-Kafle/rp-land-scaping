@@ -1,5 +1,6 @@
 const carouselTemplate = document.querySelector(`template.carousel-template`);
 const reviewTemplate = document.querySelector(`template.review-template`);
+const whyUsTemplate = document.querySelector(`template.why-us-template`)
 const serviceTemplate = document.querySelector(`template.service-template`);
 
 const star = `
@@ -13,6 +14,12 @@ stroke-linejoin="round" class="w-4 h-4 fill-current">
 `;
 
 const imagesPath = "./images/";
+
+const whyUs = {
+    "Affordable Pricing": ["money-svgrepo-com.svg", "We provide top-quality landscaping without the inflated costs. No oversized trucks, no corporate overhead—just great work at a fair price."],
+    "Personalized Experience": ["people-svgrepo-com.svg", "With smaller crews and fewer houses per week, we give each property the attention it deserves. Every yard gets the care and detail that makes it stand out."],
+    "Support Local Entrepreneurship": ["cycle-svgrepo-com.svg", "We’re a team of hardworking high school and college students from the community. 100% of profit goes to local entrepreneurship with 0% going to a corprate job."]
+}
 
 const carousels = {
     "Hedge Trimming": ["HedgingBefore.jpeg", "HedgingAfter.jpeg"],
@@ -96,14 +103,40 @@ function generateCarousels() {
 }
 
 
+function generateWhyUs() {
+    const whyUsContainer = document.querySelector(`.why-us-container`);
+    whyUsContainer.innerHTML = ``;
+
+    Object.keys(whyUs).forEach((title) => {
+        const cloneWhyUsTemplate = whyUsTemplate.content.cloneNode(true);
+        const whyUsMain = cloneWhyUsTemplate.querySelector(`.why-us-main`);
+        const cloneWhyUsTitle = cloneWhyUsTemplate.querySelector(`.why-us-title`);
+        const cloneWhyUsDescription = cloneWhyUsTemplate.querySelector(`.why-us-description`);
+
+        const newImage = document.createElement(`img`);
+        newImage.src = imagesPath + whyUs[title][0];
+        newImage.alt = title + "icon";
+        newImage.className = "why-us-svgs text-primary";
+
+        whyUsMain.prepend(newImage);
+
+        cloneWhyUsTitle.innerHTML = title;
+        cloneWhyUsDescription.innerHTML = whyUs[title][1];
+
+        whyUsContainer.appendChild(cloneWhyUsTemplate);
+    });
+    
+}
+
+
 function generateServices() {
     const serviceContainer = document.querySelector(`.services-container`);
     serviceContainer.innerHTML = ``;
 
     Object.keys(services).forEach((service) => {
         const cloneServiceTemplate = serviceTemplate.content.cloneNode(true);
-        const cloneHeadline = cloneServiceTemplate.querySelector(`.headline`);
-        const cloneDescription = cloneServiceTemplate.querySelector(`.description`);
+        const cloneHeadline = cloneServiceTemplate.querySelector(`.service-headline`);
+        const cloneDescription = cloneServiceTemplate.querySelector(`.service-description`);
         
         cloneHeadline.innerHTML = service;
         cloneDescription.innerHTML = services[service];
@@ -144,6 +177,7 @@ function main() {
 
     generateServices();
     generateReviews();
+    generateWhyUs();
 
 }
 

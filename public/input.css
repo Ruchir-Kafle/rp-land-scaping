@@ -37,12 +37,64 @@ label {
     @apply text-sm font-medium leading-none;
 }
 
-.font-headline {
+h1,
+h2,
+h3 {
+    @apply font-bold;
     font-family: 'Playfair Display', serif;
 }
 
 .bg-primary {
     background-color: hsl(var(--primary));
+}
+
+.why-us-svgs {
+    width: 40px;
+    height: 40px;
+}
+
+.section-captions {
+    @apply mt-4 max-w-2xl mx-auto;
+}
+
+.section-headlines {
+    @apply text-3xl tracking-tight sm:text-4xl;
+}
+
+.section-container {
+    @apply container mx-auto px-4 md:px-6;
+}
+
+.grid-containment {
+    @apply mt-12 grid grid-cols-1 md:grid-cols-3 gap-8;
+}
+
+.top-bar-contact-svgs {
+    @apply hidden sm:flex items-center gap-2 text-sm font-medium transition-colors;
+}
+
+.contact-svgs {
+    @apply flex items-center gap-3 text-lg transition-colors;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+}
+
+.logo-bottom {
+    width: 300px;
+    height: auto;
+}
+
+.normal-svgs {
+    width: 24px;
+    height: 24px;
+}
+
+.small-svgs {
+    width: 8px;
+    height: 8px;
 }
 
 .text-primary {
