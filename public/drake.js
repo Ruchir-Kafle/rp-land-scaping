@@ -190,7 +190,7 @@ async function handleFormSubmission() {
 }
 
 
-function handleClose(e=null, actualNotification=null) { // change how the arguments are being pass through
+function handleClose(e=null, actualNotification=null) { // change how the arguments are being pass through. prob object dereferencing
     let entireNotifcation;
 
     if (e) {
@@ -248,6 +248,9 @@ function formSubmittedNotification() {
     //     });
     // }
 
+    notificationCount++;
+    totalNotifications++;
+
     const cloneNotificationTemplate = notificationTemplate.content.cloneNode(true);
     const cloneNotification = cloneNotificationTemplate.querySelector(`.notification`);
     cloneNotification.setAttribute("data-notification-count", totalNotifications);
@@ -261,12 +264,10 @@ function formSubmittedNotification() {
     const notification = document.querySelector(`[data-notification-count="${totalNotifications}"]`);
 
     void notification.offsetWidth;
-    notificationCount++;
-    totalNotifications++;
 
     notification.style.transform = `translateX(-20rem)`;
 
-    timeClose(totalNotifications-1, 7);
+    timeClose(totalNotifications, 7);
 }
 
 
