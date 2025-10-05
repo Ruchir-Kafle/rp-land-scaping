@@ -2,6 +2,7 @@ const carouselTemplate = document.querySelector(`template.carousel-template`);
 const reviewTemplate = document.querySelector(`template.review-template`);
 const whyUsTemplate = document.querySelector(`template.why-us-template`)
 const serviceTemplate = document.querySelector(`template.service-template`);
+const notificationTemplate = document.querySelector(`template.notification-template`);
 
 const star = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -171,14 +172,43 @@ function generateReviews() {
 }
 
 
+async function handleFormSubmission() {
+    const form = document.querySelector(`#contact-form`);
+    const formData = new FormData(form);
+    
+    fetch('/public/drake.js', {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => console.log('Response:', data))
+    .catch(err => console.error(err));
+}
+
+
+function formSubmittedNotification() {
+    const cloneNotificationTemplate = notificationTemplate.content.cloneNode(true);
+    document.body.appendChild(cloneNotificationTemplate);
+
+    const notification = document.querySelector(`.notification`);
+    notification.style.transform = `translateX(-5rem)`;
+}
+
+
+document.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    handleFormSubmission();
+    formSubmittedNotification();
+})
+
 function main() {
     generateCarousels()
-    carouselImageSwitching();
-
     generateServices();
     generateReviews();
     generateWhyUs();
-
+    
+    carouselImageSwitching();
 }
 
 main();

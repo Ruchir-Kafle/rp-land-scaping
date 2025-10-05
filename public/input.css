@@ -53,6 +53,10 @@ h3 {
     height: 40px;
 }
 
+.top-area {
+    background-color: #E7E7F8;
+}
+
 .section-captions {
     @apply mt-4 max-w-2xl mx-auto;
 }
