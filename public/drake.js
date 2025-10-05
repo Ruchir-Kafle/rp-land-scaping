@@ -4,6 +4,10 @@ const whyUsTemplate = document.querySelector(`template.why-us-template`)
 const serviceTemplate = document.querySelector(`template.service-template`);
 const notificationTemplate = document.querySelector(`template.notification-template`);
 
+const maxNotifcations = 1;
+let notificationCount = 0;
+let totalNotifications = 0;
+
 const star = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
 fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -176,30 +180,103 @@ async function handleFormSubmission() {
     const form = document.querySelector(`#contact-form`);
     const formData = new FormData(form);
     
-    fetch('/public/drake.js', {
-        method: 'POST',
-        body: formData
-    })
-    .then(res => res.json())
-    .then(data => console.log('Response:', data))
-    .catch(err => console.error(err));
+    // fetch('/public/drake.js', {
+    //     method: 'POST',
+    //     body: formData
+    // })
+    // .then(res => res.json())
+    // .then(data => console.log('Response:', data))
+    // .catch(err => console.error(err));
+}
+
+
+function handleClose(e=null, actualNotification=null) { // change how the arguments are being pass through
+    let entireNotifcation;
+
+    if (e) {
+        const notificationIndex = e.target.getAttribute("data-part-of-notification");
+        entireNotifcation = document.querySelector(`[data-notification-count="${notificationIndex}"]`);
+    } else if (actualNotification) {
+        entireNotifcation = actualNotification;
+    } // throw error or something here
+
+    entireNotifcation.addEventListener("transitionend", (e) => {
+        e.target.remove();
+    });
+    entireNotifcation.style.transform += `translateX(40rem)`;
+    notificationCount -= 1;
+
+    // if (notificationCount > 0) {
+    //     const allNotifications = document.querySelectorAll(`.notification`);
+
+    //     allNotifications.forEach((eachNotification) => {
+    //         if (eachNotification.getAttribute("data-notification-count") < notificationIndex) {
+    //             eachNotification.style.transform += `translateY(9rem)`
+    //         }
+    //     });
+    // }
+}
+
+
+function timeClose(operatingNotification, seconds) {
+    const notification = document.querySelector(`[data-notification-count="${operatingNotification}"]`);
+    const progressBar = notification.querySelector(`.current-progress-bar`);
+
+    let width = 25;
+    let timeBarInterval = setInterval(() => {
+        progressBar.style.width = width + "rem";
+
+        width -= 25 / seconds / 100;
+
+        if (width <= 0) {
+            width = 0;
+            handleClose(null, notification);
+            clearInterval(timeBarInterval);
+        }
+
+    }, 10);
 }
 
 
 function formSubmittedNotification() {
+
+    // if (notificationCount > 0) {
+    //     const allNotifications = document.querySelectorAll(`.notification`);
+
+    //     allNotifications.forEach((eachNotification) => {
+    //         eachNotification.style.transform += `translateY(-9rem)`
+    //     });
+    // }
+
     const cloneNotificationTemplate = notificationTemplate.content.cloneNode(true);
+    const cloneNotification = cloneNotificationTemplate.querySelector(`.notification`);
+    cloneNotification.setAttribute("data-notification-count", totalNotifications);
+
+    const cloneButton = cloneNotification.querySelector(`button`);
+    cloneButton.setAttribute("data-part-of-notification", totalNotifications);
+    cloneButton.addEventListener("click", (e) => handleClose(e, null));
+
     document.body.appendChild(cloneNotificationTemplate);
 
-    const notification = document.querySelector(`.notification`);
-    notification.style.transform = `translateX(-5rem)`;
+    const notification = document.querySelector(`[data-notification-count="${totalNotifications}"]`);
+
+    void notification.offsetWidth;
+    notificationCount++;
+    totalNotifications++;
+
+    notification.style.transform = `translateX(-20rem)`;
+
+    timeClose(totalNotifications-1, 7);
 }
 
 
 document.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    handleFormSubmission();
-    formSubmittedNotification();
+    if (notificationCount < maxNotifcations) {
+        handleFormSubmission();
+        formSubmittedNotification();
+    }
 })
 
 function main() {

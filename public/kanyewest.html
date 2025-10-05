@@ -246,17 +246,17 @@
 </template>
 
 <template class="notification-template">
-    <div class="notification transform ease-in-out transition-all duration-1000 flex flex-col justify-between overflow-hidden text-xl min-w-[25rem] min-h-[5rem] fixed bottom-4 right-4 rounded-lg container-border shadow-sm translate-x-[5rem]">
+    <div class="notification transform ease-in-out transition-all duration-200 flex flex-col justify-between overflow-hidden text-xl min-w-[25rem] min-h-[5rem] fixed bottom-4 right-4 rounded-lg container-border shadow-sm translate-x-[20rem]">
         <div>
             <div class="top-area flex justify-between px-[1rem] p-[0.10rem]">
                 <p>Thank you</p>
-                <p>x</p>
+                <button>x</button>
             </div>
     
             <p class="bg-card p-[2rem]">Your form submission has been received.</p>
         </div>
         <div class="max-progress-bar bg-gray-300 h-[0.75rem]">
-            <div class="current-progress-bar bg-white w-full h-full"></div>
+            <div class="current-progress-bar bg-white w-[25rem] h-full"></div>
         </div>
     </div>
 </template>
