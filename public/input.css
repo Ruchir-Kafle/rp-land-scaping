@@ -29,6 +29,14 @@ body {
     color: hsl(var(--foreground));
 }
 
+section {
+    @apply w-full py-16 md:py-24;
+}
+
+label {
+    @apply text-sm font-medium leading-none;
+}
+
 .font-headline {
     font-family: 'Playfair Display', serif;
 }
@@ -37,16 +45,8 @@ body {
     background-color: hsl(var(--primary));
 }
 
-.bg-primary:hover {
-    background-color: lightgreen;
-}
-
 .text-primary {
     color: hsl(var(--primary));
-}
-
-.text-primary-foreground {
-    color: hsl(var(--primary-foreground));
 }
 
 .bg-card {
@@ -57,34 +57,33 @@ body {
     color: hsl(var(--muted-foreground));
 }
 
-.border-border {
+.container-border {
+    @apply border;
     border-color: hsl(var(--border));
 }
 
-.bg-background {
-    background-color: hsl(var(--background));
+.text-primary-hover {
+    @apply duration-300;
 }
 
-.ring-ring {
-    --tw-ring-color: hsl(var(--ring));
-}
-
-.border-input {
-    border-color: hsl(var(--input));
-}
-
-.bg-primary\/90 {
-    background-color: hsla(var(--primary), 0.9);
-}
-
-.hover\:text-primary:hover {
+.text-primary-hover:hover {
     color: hsl(var(--primary));
 }
 
-.hover\:bg-primary\/90:hover {
-    background-color: rgb(6, 85, 6);
+.quote-button {
+    @apply inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium;
+    background-color: hsl(var(--primary));
+    @apply duration-300;
+    color: hsl(var(--primary-foreground));
 }
 
-.shadow-sm {
-    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+.quote-button:hover {
+    background-color: rgb(6, 85, 6)
+}
+
+.input-field {
+    @apply flex w-full rounded-md border px-3 py-2 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm mt-2;
+    @apply focus-visible:ring-[hsl(var(--ring))];
+    background-color: hsl(var(--background));
+    border-color: hsl(var(--input));
 }
