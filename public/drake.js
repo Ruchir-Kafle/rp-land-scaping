@@ -54,22 +54,22 @@ function carouselImageSwitching() {
         const index = carousel.getAttribute('data-carousel');
         let currentSlide = 0;
         const slides = carousel.children.length;
-    
+
         const prevButton = document.querySelector(`[data-carousel-prev="${index}"]`);
         const nextButton = document.querySelector(`[data-carousel-next="${index}"]`);
-    
+
         function updateCarousel() {
-          carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
         }
-    
+
         prevButton.addEventListener('click', () => {
-          currentSlide = (currentSlide - 1 + slides) % slides;
-          updateCarousel();
+            currentSlide = (currentSlide - 1 + slides) % slides;
+            updateCarousel();
         });
-    
+
         nextButton.addEventListener('click', () => {
-          currentSlide = (currentSlide + 1) % slides;
-          updateCarousel();
+            currentSlide = (currentSlide + 1) % slides;
+            updateCarousel();
         });
     });
 }
@@ -96,7 +96,7 @@ function generateCarousels() {
         })
 
         buttons.forEach((button, buttonIndex) => {
-            const order = buttonIndex == 0 ? "data-carousel-prev": "data-carousel-next";
+            const order = buttonIndex == 0 ? "data-carousel-prev" : "data-carousel-next";
             button.setAttribute(order, carouselIndex);
         });
 
@@ -104,7 +104,7 @@ function generateCarousels() {
 
         carouselContainer.appendChild(cloneCarouselTemplate);
     });
-    
+
 }
 
 
@@ -130,7 +130,7 @@ function generateWhyUs() {
 
         whyUsContainer.appendChild(cloneWhyUsTemplate);
     });
-    
+
 }
 
 
@@ -142,13 +142,13 @@ function generateServices() {
         const cloneServiceTemplate = serviceTemplate.content.cloneNode(true);
         const cloneHeadline = cloneServiceTemplate.querySelector(`.service-headline`);
         const cloneDescription = cloneServiceTemplate.querySelector(`.service-description`);
-        
+
         cloneHeadline.innerHTML = service;
         cloneDescription.innerHTML = services[service];
 
         serviceContainer.appendChild(cloneServiceTemplate);
     });
-    
+
 }
 
 
@@ -163,7 +163,7 @@ function generateReviews() {
         const cloneQuote = cloneReviewTemplate.querySelector(`.quote`);
 
         cloneClient.innerHTML = "Client " + (reviewIndex + 1);
-        
+
         for (let i = 0; i < 5; i++) {
             cloneStarContainer.innerHTML += star;
         }
@@ -179,7 +179,7 @@ function generateReviews() {
 async function handleFormSubmission() {
     const form = document.querySelector(`#contact-form`);
     const formData = new FormData(form);
-    
+
     // fetch('/public/drake.js', {
     //     method: 'POST',
     //     body: formData
@@ -190,7 +190,7 @@ async function handleFormSubmission() {
 }
 
 
-function handleClose(e=null, actualNotification=null) { // change how the arguments are being pass through. prob object dereferencing
+function handleClose(e = null, actualNotification = null) { // change how the arguments are being pass through. prob object dereferencing
     let entireNotifcation;
 
     if (e) {
@@ -285,7 +285,7 @@ function main() {
     generateServices();
     generateReviews();
     generateWhyUs();
-    
+
     carouselImageSwitching();
 }
 
