@@ -1,0 +1,25 @@
+{
+  "name": "rplandscaping",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/p0syd0n/rplandscaping.git"
+  },
+  "author": "posyudon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/p0syd0n/rplandscaping/issues"
+  },
+  "homepage": "https://github.com/p0syd0n/rplandscaping#readme",
+  "description": "",
+  "dependencies": {
+    "better-sqlite3": "^12.2.0",
+    "dotenv": "^17.2.1",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  }
+}

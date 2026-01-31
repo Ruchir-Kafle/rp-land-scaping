@@ -1,3 +1,5 @@
+const ENDPOINT = "/beans";
+
 const carouselTemplate = document.querySelector(`template.carousel-template`);
 const reviewTemplate = document.querySelector(`template.review-template`);
 const whyUsTemplate = document.querySelector(`template.why-us-template`)
@@ -180,13 +182,13 @@ async function handleFormSubmission() {
     const form = document.querySelector(`#contact-form`);
     const formData = new FormData(form);
     
-    // fetch('/public/drake.js', {
-    //     method: 'POST',
-    //     body: formData
-    // })
-    // .then(res => res.json())
-    // .then(data => console.log('Response:', data))
-    // .catch(err => console.error(err));
+    fetch(`rplandscaping.org${ENDPOINT}`, {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => console.log('Response:', data))
+    .catch(err => console.error(err));
 }
 
 

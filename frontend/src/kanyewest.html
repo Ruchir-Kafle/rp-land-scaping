@@ -130,16 +130,17 @@
                                 <form id="contact-form" class="space-y-6", method="POST">
                                     <div>
                                         <label for="name">Full Name</label>
-                                        <input type="text" class="input-field h-10 placeholder:text-muted-foreground" id="name" placeholder="John Doe" name="name">
+                                        <input type="text" class="input-field h-10 placeholder:text-muted-foreground" id="name" placeholder="John Doe" name="name" required>
                                     </div>
 
                                     <div>
-                                        <label for="email">Email Address</label>
-                                        <input type="email" class="input-field h-10 placeholder:text-muted-foreground" id="email" placeholder="you@example.com" name="email">
+                                        <label for="phone">Phone Number</label>
+                                        <input type="tel" class="input-field h-10 placeholder:text-muted-foreground" id="phone" placeholder="123-456-7890" name="number" required>
                                     </div>
+
                                     <div>
-                                        <label for="phone">Phone Number (Optional)</label>
-                                        <input type="tel" class="input-field h-10 placeholder:text-muted-foreground" id="phone" placeholder="(123) 456-7890" name="number">
+                                        <label for="email">Email Address (Optional)</label>
+                                        <input type="email" class="input-field h-10 placeholder:text-muted-foreground" id="email" placeholder="you@example.com" name="email">
                                     </div>
                                     <div>
                                         <label for="message">How can we help?</label>
