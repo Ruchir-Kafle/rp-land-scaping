@@ -1,4 +1,4 @@
-const ENDPOINT = "/beans";
+const ENDPOINT = "/submitForm";
 
 const carouselTemplate = document.querySelector(`template.carousel-template`);
 const reviewTemplate = document.querySelector(`template.review-template`);
