@@ -4,6 +4,7 @@ const path = require("path");
 require("dotenv").config();
 
 const PORT = process.env.PORT || 8069;
+const FRONTENDFILE = "kanyewest.html";
 
 // open database (synchronous, no callback)
 const dbPath = "database/database.db";
@@ -37,25 +38,26 @@ function deleteEntry(id) {
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
-app.use(express.static(path.join(__dirname, "public")));
-app.use(express.json()); 
+app.use(express.static(path.join(__dirname, "..", "frontend", "src")));
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
 app.get("/", (req, res) => {
-  res.render("main");
+  res.sendFile(path.join(__dirname, "..", "frontend", "src", FRONTENDFILE));
 });
 
 app.post("/submitForm", (req, res) => {
   console.log(req.body)
-  const { name, email, number, content } = req.body;
-  if (!name || !email || !number || !content) {
-    return res.redirect("/error");
+  
+  const { name, email, phone, message } = req.body;
+  if (!name || !email || !phone || !message) {
+    return res.sendStatus(400);
   }
 
-  addEntry(name, email, number, content);
+  addEntry(name, email, phone, message);
 
-  return res.redirect("/");
+  return res.sendStatus(200);
 });
 
 app.get("/sas", (req, res) => {
@@ -72,7 +74,7 @@ app.post("/deleteEntry", (req, res) => {
   if (!id) return res.sendStatus(400);
 
   deleteEntry(id);
-  return res.redirect("/sas")
+  return res.sendStatus(200);
 })
 
 app.listen(PORT, () => {

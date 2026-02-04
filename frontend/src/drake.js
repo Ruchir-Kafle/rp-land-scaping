@@ -178,15 +178,18 @@ function generateReviews() {
 }
 
 
-async function handleFormSubmission() {
-    const form = document.querySelector(`#contact-form`);
+async function handleFormSubmission(form) {
     const formData = new FormData(form);
-    
-    fetch(`rplandscaping.org${ENDPOINT}`, {
+    const data = Object.fromEntries(formData.entries());
+
+    fetch(`${ENDPOINT}`, {
         method: 'POST',
-        body: formData
+        headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+        },
+        body: JSON.stringify(data)
     })
-    .then(res => res.json())
     .then(data => console.log('Response:', data))
     .catch(err => console.error(err));
 }
@@ -274,10 +277,13 @@ function formSubmittedNotification() {
 
 
 document.addEventListener("submit", (e) => {
+    const form = document.querySelector('#contact-form');
     e.preventDefault();
 
     if (notificationCount < maxNotifcations) {
-        handleFormSubmission();
+        if (form) {
+            handleFormSubmission(form);
+        }
         formSubmittedNotification();
     }
 })
