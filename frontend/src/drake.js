@@ -247,14 +247,14 @@ async function handleFormSubmission(form) {
     const services = formData.getAll('services').join(', ');
 
     // Combine into a single message block for the backend storage
-    const combinedMessage = `
-Services: ${services}
-Preferred Contact: ${contactMethod}
-Address: ${address || 'Not provided'}
+    const combinedMessage = 
+    `Services: ${services}
+    Preferred Contact: ${contactMethod}
+    Address: ${address || 'Not provided'}
 
-Notes:
-${userMessage}
-    `.trim();
+    Notes:
+    ${userMessage}`
+    .trim();
 
     const payload = {
         name,
