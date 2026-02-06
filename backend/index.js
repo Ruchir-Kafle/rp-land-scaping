@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 8069;
 const FRONTENDFILE = "kanyewest.html";
 
 // open database (synchronous, no callback)
-const dbPath = "database/database.db";
+const dbPath = path.join(__dirname, 'database', 'database.db');
 let db;
 try {
   db = new Database(dbPath);

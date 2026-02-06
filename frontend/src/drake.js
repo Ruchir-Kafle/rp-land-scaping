@@ -35,9 +35,9 @@ const carousels = {
 };
 
 const reviews = [
-    "Quote coming soon!",
-    "Quote coming soon!",
-    "Quote coming soon!"
+    "Ryan was highly motivated to care and maintain my large property. He and his employees cut my grass once a week, also weed whacked, weeded and always blew all cuttings away. Ryan even planted some bulbs for me! He was always very polite, accommodating and professional. I would highly recommend his services.",
+    "Our property has needed many projects. RP Landscaping has been reliable, dedicated and hardworking. All the crew members get the job done. They go beyond my expectations.",
+    "RP Landscaping did a great job with a fall cleanup on my property. They did a great job for a low price. I highly recommend RP Landscaping."
 ]
 
 const services = {
