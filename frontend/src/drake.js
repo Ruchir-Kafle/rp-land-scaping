@@ -185,13 +185,13 @@ async function handleFormSubmission(form) {
     fetch(`${ENDPOINT}`, {
         method: 'POST',
         headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
         },
         body: JSON.stringify(data)
     })
-    .then(data => console.log('Response:', data))
-    .catch(err => console.error(err));
+        .then(data => console.log('Response:', data))
+        .catch(err => console.error(err));
 }
 
 

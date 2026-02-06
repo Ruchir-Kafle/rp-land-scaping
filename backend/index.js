@@ -49,7 +49,7 @@ app.get("/", (req, res) => {
 
 app.post("/submitForm", (req, res) => {
   console.log(req.body)
-  
+
   const { name, email, phone, message } = req.body;
   if (!name || !email || !phone || !message) {
     return res.sendStatus(400);
