@@ -35,9 +35,18 @@ const carousels = {
 };
 
 const reviews = [
-    "Ryan was highly motivated to care and maintain my large property. He and his employees cut my grass once a week, also weed whacked, weeded and always blew all cuttings away. Ryan even planted some bulbs for me! He was always very polite, accommodating and professional. I would highly recommend his services.",
-    "Our property has needed many projects. RP Landscaping has been reliable, dedicated and hardworking. All the crew members get the job done. They go beyond my expectations.",
-    "RP Landscaping did a great job with a fall cleanup on my property. They did a great job for a low price. I highly recommend RP Landscaping."
+    {
+        name: "Meri V",
+        text: "Ryan was highly motivated to care and maintain my large property. He and his employees cut my grass once a week, also weed whacked, weeded and always blew all cuttings away. Ryan even planted some bulbs for me! He was always very polite, accommodating and professional. I would highly recommend his services."
+    },
+    {
+        name: "MaryPat M",
+        text: "Our property has needed many projects. RP Landscaping has been reliable, dedicated and hardworking. All the crew members get the job done. They go beyond my expectations."
+    },
+    {
+        name: "Jeff P",
+        text: "RP Landscaping did a great job with a fall cleanup on my property. They did a great job for a low price. I highly recommend RP Landscaping."
+    }
 ]
 
 const services = {
@@ -51,28 +60,77 @@ const services = {
 }
 
 
-function carouselImageSwitching() {
-    document.querySelectorAll('[data-carousel]').forEach(carousel => {
-        const index = carousel.getAttribute('data-carousel');
-        let currentSlide = 0;
-        const slides = carousel.children.length;
 
-        const prevButton = document.querySelector(`[data-carousel-prev="${index}"]`);
-        const nextButton = document.querySelector(`[data-carousel-next="${index}"]`);
+function initSliders() {
+    document.querySelectorAll('.comparison-container').forEach(container => {
+        const sliderHandle = container.querySelector('.slider-handle');
+        const beforeContainer = container.querySelector('.before-container');
+        const beforeImage = container.querySelector('.before-image');
 
-        function updateCarousel() {
-            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
-        }
+        // Match the before image width to the container width so it doesn't skew
+        // We'll update this on resize as well
+        const updateImageWidth = () => {
+            beforeImage.style.width = `${container.offsetWidth}px`;
+        };
 
-        prevButton.addEventListener('click', () => {
-            currentSlide = (currentSlide - 1 + slides) % slides;
-            updateCarousel();
-        });
+        // Initial set
+        updateImageWidth();
+        window.addEventListener('resize', updateImageWidth);
 
-        nextButton.addEventListener('click', () => {
-            currentSlide = (currentSlide + 1) % slides;
-            updateCarousel();
-        });
+        let isDragging = false;
+
+        const moveSlider = (x) => {
+            const containerRect = container.getBoundingClientRect();
+            let pos = ((x - containerRect.left) / containerRect.width) * 100;
+
+            // Clamp between 0 and 100
+            pos = Math.max(0, Math.min(100, pos));
+
+            beforeContainer.style.width = `${pos}%`;
+            sliderHandle.style.left = `${pos}%`;
+        };
+
+        const onMouseDown = (e) => {
+            isDragging = true;
+            moveSlider(e.clientX);
+        };
+
+        const onMouseUp = () => {
+            isDragging = false;
+        };
+
+        const onMouseMove = (e) => {
+            if (!isDragging) return;
+            moveSlider(e.clientX);
+        };
+
+        // Touch events
+        const onTouchStart = (e) => {
+            isDragging = true;
+            moveSlider(e.touches[0].clientX);
+        };
+
+        const onTouchMove = (e) => {
+            if (!isDragging) return;
+            // prevent scrolling while dragging
+            e.preventDefault();
+            moveSlider(e.touches[0].clientX);
+        };
+
+        const onTouchEnd = () => {
+            isDragging = false;
+        };
+
+
+        // Event Listeners
+        container.addEventListener('mousedown', onMouseDown);
+        container.addEventListener('mousemove', onMouseMove);
+        // We attach mouseup to window so dragging doesn't stick if you leave the element
+        window.addEventListener('mouseup', onMouseUp);
+
+        container.addEventListener('touchstart', onTouchStart, { passive: false });
+        container.addEventListener('touchmove', onTouchMove, { passive: false });
+        container.addEventListener('touchend', onTouchEnd);
     });
 }
 
@@ -81,32 +139,24 @@ function generateCarousels() {
     const carouselContainer = document.querySelector(`.carousel-container`);
     carouselContainer.innerHTML = ``;
 
-    Object.keys(carousels).forEach((carousel, carouselIndex) => {
+    Object.keys(carousels).forEach((carouselTitle) => {
         const cloneCarouselTemplate = carouselTemplate.content.cloneNode(true);
-        const cloneCarousel = cloneCarouselTemplate.querySelector(`.carousel`);
-        const cloneCarouselCaption = cloneCarouselTemplate.querySelector(`.carousel-caption`);
-        const buttons = cloneCarouselTemplate.querySelectorAll(`button`);
 
-        cloneCarousel.setAttribute("data-carousel", carouselIndex);
-        carousels[carousel].forEach((image, imageIndex) => {
-            const newImage = document.createElement(`img`);
-            newImage.src = imagesPath + image;
-            newImage.alt = carousel + (imageIndex == 0 ? " Before" : " After");
-            newImage.className = "w-full h-full object-cover min-w-full";
+        const afterImage = cloneCarouselTemplate.querySelector('.after-image');
+        const beforeImage = cloneCarouselTemplate.querySelector('.before-image');
+        const caption = cloneCarouselTemplate.querySelector('.carousel-caption');
 
-            cloneCarousel.appendChild(newImage);
-        })
+        // Data format found in `carousels` object: [beforeImg, afterImg]
+        // "Hedge Trimming": ["HedgingBefore.jpeg", "HedgingAfter.jpeg"]
+        const [beforeImgSrc, afterImgSrc] = carousels[carouselTitle];
 
-        buttons.forEach((button, buttonIndex) => {
-            const order = buttonIndex == 0 ? "data-carousel-prev" : "data-carousel-next";
-            button.setAttribute(order, carouselIndex);
-        });
+        afterImage.src = imagesPath + afterImgSrc;
+        beforeImage.src = imagesPath + beforeImgSrc;
 
-        cloneCarouselCaption.innerHTML = carousel + " Before/After";
+        caption.innerHTML = carouselTitle + " Before/After";
 
         carouselContainer.appendChild(cloneCarouselTemplate);
     });
-
 }
 
 
@@ -158,19 +208,24 @@ function generateReviews() {
     const reviewsContainer = document.querySelector(`.reviews-container`);
     reviewsContainer.innerHTML = ``;
 
-    reviews.forEach((review, reviewIndex) => {
+    reviews.forEach((reviewData) => {
         const cloneReviewTemplate = reviewTemplate.content.cloneNode(true);
         const cloneClient = cloneReviewTemplate.querySelector(`.client`);
         const cloneStarContainer = cloneReviewTemplate.querySelector(`.star-container`);
         const cloneQuote = cloneReviewTemplate.querySelector(`.quote`);
+        const cloneImage = cloneReviewTemplate.querySelector('img');
 
-        cloneClient.innerHTML = "Client " + (reviewIndex + 1);
+        cloneClient.innerHTML = reviewData.name;
+
+        const initials = reviewData.name.split(' ').map(n => n[0]).join('');
+        cloneImage.src = `https://placehold.co/40x40.png?text=${initials}`;
+        cloneImage.alt = reviewData.name;
 
         for (let i = 0; i < 5; i++) {
             cloneStarContainer.innerHTML += star;
         }
 
-        cloneQuote.innerHTML = review;
+        cloneQuote.innerHTML = `"${reviewData.text}"`;
 
         reviewsContainer.appendChild(cloneReviewTemplate);
     });
@@ -294,7 +349,9 @@ function main() {
     generateReviews();
     generateWhyUs();
 
-    carouselImageSwitching();
+
+    initSliders();
+
 }
 
 main();
