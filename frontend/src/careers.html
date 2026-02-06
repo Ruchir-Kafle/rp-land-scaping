@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - RP Landscaping</title>
+    <link rel="stylesheet" href="output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
+    <script defer src="careers.js"></script>
+</head>
+
+<body class="antialiased overflow-x-hidden flex flex-col min-h-screen">
+
+    <header class="sticky top-0 z-50 w-full bg-white/50 backdrop-blur-sm">
+        <div class="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
+            <a href="kanyewest.html">
+                <img src="images/RPLandscapingLogo8Transparent.png" alt="RP Landscaping Logo" class="object-contain logo" />
+            </a>
+            <div class="flex items-center gap-4">
+                <a href="tel:+7745599448" class="hidden sm:flex items-center gap-2 text-primary-hover">
+                    <img src="images/telephone-svgrepo-com.svg" alt="Call Icon" class="w-5 h-5" />
+                    774-559-9448
+                </a>
+
+                <a href="mailto:prendergastlandscaping@gmail.com" class="hidden sm:flex items-center gap-2 text-primary-hover">
+                    <img src="images/mail-svgrepo-com.svg" alt="Mail Icon" class="w-5 h-5" />
+                    prendergastlandscaping@gmail.com
+                </a>
+
+                <a href="kanyewest.html#contact" class="quote-button h-9 px-3">Get a Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1">
+        <section class="py-12 md:py-24 lg:py-32 bg-card">
+            <div class="container mx-auto px-4 md:px-6 max-w-3xl">
+                <div class="text-center mb-12">
+                    <h1 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Join Our Team</h1>
+                    <p class="mt-4 text-muted-foreground text-lg">
+                        We are looking for hardworking individuals to help us create stunning landscapes.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm border p-6 md:p-8">
+                    <form id="careers-form" class="space-y-8" method="POST">
+
+                        <!-- Personal Info -->
+                        <div class="space-y-4">
+                            <h2 class="text-xl font-semibold border-b pb-2">Personal Information</h2>
+
+                            <div>
+                                <label for="name" class="block text-sm font-medium mb-1">Full Name *</label>
+                                <input type="text" name="name" id="name" required class="input-field h-10 w-full px-3 border rounded-md placeholder:text-muted-foreground">
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="phone" class="block text-sm font-medium mb-1">Phone Number *</label>
+                                    <input type="tel" name="phone" id="phone" required class="input-field h-10 w-full px-3 border rounded-md placeholder:text-muted-foreground">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium mb-1">Email Address *</label>
+                                    <input type="email" name="email" id="email" required class="input-field h-10 w-full px-3 border rounded-md placeholder:text-muted-foreground">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="address" class="block text-sm font-medium mb-1">Address (#, Street, Town) *</label>
+                                <input type="text" name="address" id="address" required class="input-field h-10 w-full px-3 border rounded-md placeholder:text-muted-foreground">
+                            </div>
+                        </div>
+
+                        <!-- Qualifications -->
+                        <div class="space-y-6">
+                            <h2 class="text-xl font-semibold border-b pb-2">Qualifications</h2>
+
+                            <!-- Driver's License -->
+                            <div class="space-y-3">
+                                <label class="block text-sm font-medium">Do you have a valid driver’s license? *</label>
+                                <div class="flex gap-4">
+                                    <label class="flex items-center space-x-2 cursor-pointer">
+                                        <input type="radio" name="drivers_license" value="Yes" class="text-primary focus:ring-primary" required>
+                                        <span>Yes</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 cursor-pointer">
+                                        <input type="radio" name="drivers_license" value="No" class="text-primary focus:ring-primary">
+                                        <span>No</span>
+                                    </label>
+                                </div>
+
+                                <div id="vehicle-details" class="hidden mt-2 pl-4 border-l-2 border-gray-200">
+                                    <label for="vehicle_info" class="block text-sm font-medium mb-1">If yes, what type of vehicle do you drive? (Make, Model, Equipment Capacity)</label>
+                                    <input type="text" name="vehicle_info" id="vehicle_info" class="input-field h-10 w-full px-3 border rounded-md placeholder:text-muted-foreground">
+                                </div>
+                            </div>
+
+                            <!-- Experience -->
+                            <div class="space-y-3">
+                                <label class="block text-sm font-medium">Do you have any experience with landscaping or yard work? *</label>
+                                <div class="flex gap-4">
+                                    <label class="flex items-center space-x-2 cursor-pointer">
+                                        <input type="radio" name="experience" value="Yes" class="text-primary focus:ring-primary" required>
+                                        <span>Yes</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 cursor-pointer">
+                                        <input type="radio" name="experience" value="No" class="text-primary focus:ring-primary">
+                                        <span>No</span>
+                                    </label>
+                                </div>
+
+                                <div id="experience-details" class="hidden mt-2 pl-4 border-l-2 border-gray-200">
+                                    <label for="experience_desc" class="block text-sm font-medium mb-1">Please describe your experience (Type of work, duration, tools used, etc.)</label>
+                                    <textarea name="experience_desc" id="experience_desc" class="input-field min-h-[100px] w-full p-3 border rounded-md placeholder:text-muted-foreground"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Availability & Physical -->
+                            <div>
+                                <label for="availability" class="block text-sm font-medium mb-1">What days and hours are you available to work? *</label>
+                                <input type="text" name="availability" id="availability" required placeholder="e.g., Mon-Fri 8am-5pm" class="input-field h-10 w-full px-3 border rounded-md placeholder:text-muted-foreground">
+                            </div>
+
+                            <div class="space-y-3">
+                                <label class="block text-sm font-medium">Are you comfortable working outdoors in hot or cool weather and lifting up to 50 lbs? *</label>
+                                <div class="flex gap-4">
+                                    <label class="flex items-center space-x-2 cursor-pointer">
+                                        <input type="radio" name="physical_capability" value="Yes" class="text-primary focus:ring-primary" required>
+                                        <span>Yes</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 cursor-pointer">
+                                        <input type="radio" name="physical_capability" value="No" class="text-primary focus:ring-primary">
+                                        <span>No</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Resume -->
+                        <div class="space-y-4">
+                            <h2 class="text-xl font-semibold border-b pb-2">Resume</h2>
+                            <div>
+                                <label for="resume" class="block text-sm font-medium mb-1">Upload Resume (Optional)</label>
+                                <input type="file" name="resume" id="resume" accept=".pdf,.doc,.docx" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-primary/90">
+                                <p class="text-xs text-muted-foreground mt-1">Note: Document upload is not fully supported yet. Please verify all details above.</p>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="quote-button h-12 px-6 w-full text-lg font-semibold">Submit Application</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-8 border-t">
+        <div class="container mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <img src="images/RPLandscapingLogo8Transparent.png" alt="RP Landscaping Logo" class="object-contain logo-bottom h-12" />
+                <span class="font-bold text-lg">RP Landscaping</span>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
+                <a href="kanyewest.html" class="hover:underline">Home</a>
+                <a href="careers.html" class="hover:underline">Careers</a>
+                <a href="kanyewest.html#contact" class="hover:underline">Contact</a>
+            </div>
+
+            <p class="text-sm text-muted-foreground">&copy; 2025 RP Landscaping. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

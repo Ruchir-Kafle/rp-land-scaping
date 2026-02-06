@@ -233,9 +233,35 @@ function generateReviews() {
 }
 
 
+
 async function handleFormSubmission(form) {
     const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
+
+    // Extract fields
+    const name = formData.get('name');
+    const phone = formData.get('phone');
+    const email = formData.get('email');
+    const userMessage = formData.get('message');
+    const address = formData.get('address');
+    const contactMethod = formData.get('contact_method');
+    const services = formData.getAll('services').join(', ');
+
+    // Combine into a single message block for the backend storage
+    const combinedMessage = `
+Services: ${services}
+Preferred Contact: ${contactMethod}
+Address: ${address || 'Not provided'}
+
+Notes:
+${userMessage}
+    `.trim();
+
+    const payload = {
+        name,
+        phone,
+        email,
+        message: combinedMessage
+    };
 
     fetch(`${ENDPOINT}`, {
         method: 'POST',
@@ -243,7 +269,7 @@ async function handleFormSubmission(form) {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(payload)
     })
         .then(data => console.log('Response:', data))
         .catch(err => console.error(err));
@@ -331,8 +357,18 @@ function formSubmittedNotification() {
 }
 
 
+
 document.addEventListener("submit", (e) => {
     const form = document.querySelector('#contact-form');
+
+    // Check services validation
+    const services = form.querySelectorAll('input[name="services"]:checked');
+    if (services.length === 0) {
+        e.preventDefault();
+        alert("Please select at least one service.");
+        return;
+    }
+
     e.preventDefault();
 
     if (notificationCount < maxNotifcations) {
@@ -343,6 +379,51 @@ document.addEventListener("submit", (e) => {
     }
 })
 
+
+function initContactFormType() {
+    const contactRadios = document.querySelectorAll('input[name="contact_method"]');
+    const phoneInput = document.getElementById('phone');
+    const emailInput = document.getElementById('email');
+    const phoneLabel = document.getElementById('phone-req');
+    const emailLabel = document.getElementById('email-req');
+
+    const updateRequirements = (method) => {
+        if (method === 'email') {
+            emailInput.required = true;
+            phoneInput.required = false;
+            emailLabel.textContent = '*';
+            emailLabel.classList.remove('text-muted-foreground', 'text-xs');
+            emailLabel.classList.add('text-red-500');
+
+            phoneLabel.textContent = '(Optional)';
+            phoneLabel.classList.remove('text-red-500');
+            phoneLabel.classList.add('text-muted-foreground', 'text-xs');
+        } else {
+            // call or text
+            phoneInput.required = true;
+            emailInput.required = false;
+            phoneLabel.textContent = '*';
+            phoneLabel.classList.remove('text-muted-foreground', 'text-xs');
+            phoneLabel.classList.add('text-red-500');
+
+            emailLabel.textContent = '(Optional)';
+            emailLabel.classList.remove('text-red-500');
+            emailLabel.classList.add('text-muted-foreground', 'text-xs');
+        }
+    };
+
+    contactRadios.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            updateRequirements(e.target.value);
+        });
+
+        // Check initial state
+        if (radio.checked) {
+            updateRequirements(radio.value);
+        }
+    });
+}
+
 function main() {
     generateCarousels()
     generateServices();
@@ -351,7 +432,7 @@ function main() {
 
 
     initSliders();
-
+    initContactFormType();
 }
 
 main();

@@ -127,26 +127,92 @@
                                 <h3 class="text-2xl leading-none tracking-tight">Get in Touch</h3>
                             </div>
                             <div class="p-6 pt-0">
-                                <form id="contact-form" class="space-y-6" , method="POST">
+                                <form id="contact-form" class="space-y-6" method="POST">
                                     <div>
-                                        <label for="name">Full Name</label>
-                                        <input type="text" class="input-field h-10 placeholder:text-muted-foreground" id="name" placeholder="John Doe" name="name" required>
+                                        <label for="name" class="block text-sm font-medium mb-1">Full Name *</label>
+                                        <input type="text" class="input-field h-10 placeholder:text-muted-foreground w-full px-3 border rounded-md" id="name" placeholder="John Doe" name="name" required>
                                     </div>
 
                                     <div>
-                                        <label for="phone">Phone Number</label>
-                                        <input type="tel" class="input-field h-10 placeholder:text-muted-foreground" id="phone" placeholder="123-456-7890" name="phone" required>
+                                        <label class="block text-sm font-medium mb-2">Services Interested In *</label>
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                            <label class="flex items-center space-x-2 cursor-pointer">
+                                                <input type="checkbox" name="services" value="Routine Lawn Care" class="rounded border-gray-300 text-primary focus:ring-primary">
+                                                <span class="text-sm">Routine Lawn Care</span>
+                                            </label>
+                                            <label class="flex items-center space-x-2 cursor-pointer">
+                                                <input type="checkbox" name="services" value="Spring/Fall Cleanup" class="rounded border-gray-300 text-primary focus:ring-primary">
+                                                <span class="text-sm">Spring/Fall Cleanup</span>
+                                            </label>
+                                            <label class="flex items-center space-x-2 cursor-pointer">
+                                                <input type="checkbox" name="services" value="Mulching & Bed Edging" class="rounded border-gray-300 text-primary focus:ring-primary">
+                                                <span class="text-sm">Mulching & Bed Edging</span>
+                                            </label>
+                                            <label class="flex items-center space-x-2 cursor-pointer">
+                                                <input type="checkbox" name="services" value="Weeding" class="rounded border-gray-300 text-primary focus:ring-primary">
+                                                <span class="text-sm">Weeding</span>
+                                            </label>
+                                            <label class="flex items-center space-x-2 cursor-pointer">
+                                                <input type="checkbox" name="services" value="Hedging" class="rounded border-gray-300 text-primary focus:ring-primary">
+                                                <span class="text-sm">Hedging</span>
+                                            </label>
+                                            <label class="flex items-center space-x-2 cursor-pointer">
+                                                <input type="checkbox" name="services" value="Pressure Washing" class="rounded border-gray-300 text-primary focus:ring-primary">
+                                                <span class="text-sm">Pressure Washing</span>
+                                            </label>
+                                            <label class="flex items-center space-x-2 cursor-pointer sm:col-span-2">
+                                                <input type="checkbox" name="services" value="Other" class="rounded border-gray-300 text-primary focus:ring-primary">
+                                                <span class="text-sm">Other (Please specify in notes below)</span>
+                                            </label>
+                                        </div>
                                     </div>
 
                                     <div>
-                                        <label for="email">Email Address (Optional)</label>
-                                        <input type="email" class="input-field h-10 placeholder:text-muted-foreground" id="email" placeholder="you@example.com" name="email">
+                                        <label class="block text-sm font-medium mb-2">Preferred Method of Contact *</label>
+                                        <div class="flex flex-wrap gap-3">
+                                            <label class="cursor-pointer">
+                                                <input type="radio" name="contact_method" value="call" class="peer hidden" required checked>
+                                                <div class="px-4 py-2 rounded-md border border-input bg-background hover:bg-accent hover:text-accent-foreground peer-checked:bg-[hsl(var(--primary))] peer-checked:text-white transition-all text-sm font-medium">
+                                                    Phone Call
+                                                </div>
+                                            </label>
+                                            <label class="cursor-pointer">
+                                                <input type="radio" name="contact_method" value="text" class="peer hidden">
+                                                <div class="px-4 py-2 rounded-md border border-input bg-background hover:bg-accent hover:text-accent-foreground peer-checked:bg-[hsl(var(--primary))] peer-checked:text-white transition-all text-sm font-medium">
+                                                    Text Message
+                                                </div>
+                                            </label>
+                                            <label class="cursor-pointer">
+                                                <input type="radio" name="contact_method" value="email" class="peer hidden">
+                                                <div class="px-4 py-2 rounded-md border border-input bg-background hover:bg-accent hover:text-accent-foreground peer-checked:bg-[hsl(var(--primary))] peer-checked:text-white transition-all text-sm font-medium">
+                                                    Email
+                                                </div>
+                                            </label>
+                                        </div>
                                     </div>
+
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label for="phone" class="block text-sm font-medium mb-1">Phone Number <span id="phone-req" class="text-red-500">*</span></label>
+                                            <input type="tel" class="input-field h-10 placeholder:text-muted-foreground w-full px-3 border rounded-md" id="phone" placeholder="123-456-7890" name="phone" required>
+                                        </div>
+                                        <div>
+                                            <label for="email" class="block text-sm font-medium mb-1">Email <span id="email-req" class="text-muted-foreground text-xs">(Optional)</span></label>
+                                            <input type="email" class="input-field h-10 placeholder:text-muted-foreground w-full px-3 border rounded-md" id="email" placeholder="you@example.com" name="email">
+                                        </div>
+                                    </div>
+
                                     <div>
-                                        <label for="message">How can we help?</label>
-                                        <textarea class="input-field min-h-[100px] placeholder:text-muted-foreground" id="message" placeholder="Tell us about your project..." name="message"></textarea>
+                                        <label for="address" class="block text-sm font-medium mb-1">Address <span class="text-muted-foreground text-xs">(Optional)</span></label>
+                                        <input type="text" class="input-field h-10 placeholder:text-muted-foreground w-full px-3 border rounded-md" id="address" placeholder="123 Main St, City, State" name="address">
                                     </div>
-                                    <button type="submit" class="quote-button h-10 px-4 py-2 w-full">Send Message</button>
+
+                                    <div>
+                                        <label for="message" class="block text-sm font-medium mb-1">How can we help? (Notes)</label>
+                                        <textarea class="input-field min-h-[100px] placeholder:text-muted-foreground w-full p-3 border rounded-md" id="message" placeholder="Tell us about your project..." name="message"></textarea>
+                                    </div>
+
+                                    <button type="submit" class="quote-button h-10 px-4 py-2 w-full mt-2">Send Message</button>
                                 </form>
                             </div>
                         </div>
@@ -166,6 +232,9 @@
                     </a>
                     <a href="mailto:prendergastlandscaping@gmail.com" class="text-sm hover:underline">
                         prendergastlandscaping@gmail.com
+                    </a>
+                    <a href="careers.html" class="text-sm hover:underline font-semibold text-primary">
+                        Careers
                     </a>
                 </div>
                 <p class="text-sm mt-4 sm:mt-0">&copy; 2025 RP Landscaping. All rights reserved.</p>
