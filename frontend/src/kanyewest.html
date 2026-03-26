@@ -4,7 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RP Landscaping</title>
+    <title>Landscaping & Lawn Care in Holden & Worcester, MA | RP Landscaping</title>
+    <meta name="description" content="Affordable, student-run landscaping in Central MA. From spring cleanups to routine mowing, we treat your yard like our own. Get a free quote today!">
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "RP Landscaping",
+  "image": "https://rplandscaping.org/images/RPLandscapingLogo8Transparent.png",
+  "telePhone": "774-559-9448",
+  "email": "prendergastlandscaping@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Holden",
+    "addressRegion": "MA",
+    "addressCountry": "US"
+  },
+  "areaServed": ["Holden", "Worcester", "Sterling", "Paxton", "Rutland", "Shrewsbury", "Grafton"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Landscaping Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Routine Lawn Care",
+          "description": "Weekly or bi-weekly mowing, edging, trimming, and driveway blowing."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Spring and Fall Cleanup",
+          "description": "Leaf blowing, stick removal, and debris removal for seasonal transitions."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Mulching & Bed Edging",
+          "description": "Professional mulch installation, bed edging, and weed clearing."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Pressure Washing",
+          "description": "Cleaning services for driveways, patios, houses, and fences."
+        }
+      }
+    ]
+  }
+}
+</script>
+
+    <link rel="icon" href="images/RPLandscapingLogo8Transparent.png" type="image/png">
     <link rel="stylesheet" href="output.css">
     <script defer src="drake.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,15 +76,15 @@
     <div class="flex flex-col min-h-screen">
         <header class="sticky top-0 z-50 w-full bg-white/50 backdrop-blur-sm">
             <div class="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-                <img src="images/RPLandscapingLogo8Transparent.png" alt="RP Landscaping Logo" class="object-contain logo" />
+                <img src="images/RPLandscapingLogo8Transparent.png" alt="RP Landscaping - Student-Run Lawn Care in Holden and Worcester, MA" class="object-contain logo" />
                 <div class="flex items-center gap-4">
                     <a href="tel:+7745599448" class="top-bar-contact-svgs text-primary-hover">
-                        <img src="images/telephone-svgrepo-com.svg" alt="Call Icon" class="normal-svgs" />
+                        <img src="images/telephone-svgrepo-com.svg" alt="" class="normal-svgs" />
                         774-559-9448
                     </a>
 
                     <a href="mailto:prendergastlandscaping@gmail.com" class="top-bar-contact-svgs text-primary-hover">
-                        <img src="images/mail-svgrepo-com.svg" alt="Mail Icon" class="normal-svgs" />
+                        <img src="images/mail-svgrepo-com.svg" alt="" class="normal-svgs" />
                         prendergastlandscaping@gmail.com
                     </a>
 
@@ -36,7 +95,7 @@
 
         <main class="flex-1">
             <section class="relative w-full py-24 md:py-32 lg:py-40 flex items-center justify-center text-center text-white">
-                <img src="images/Adjustable-x-1080-FirstPicture.JPG" alt="A Beautifully Landscaped lawn." data-ai-hint="landscaped garden" class="absolute inset-0 w-full h-full object-cover z-0" />
+                <img src="images/Adjustable-x-1080-FirstPicture.JPG" alt="Professionally landscaped and mowed lawn in Central Massachusetts by RP Landscaping" class="absolute inset-0 w-full h-full object-cover z-0" />
                 <div class="container px-4 md:px-6 z-20">
                     <h1 class="text-4xl tracking-tight sm:text-5xl md:text-6xl text-white drop-shadow-md">
                         RP Landscaping
@@ -78,7 +137,79 @@
                 </div>
             </section>
 
-            <section id="testimonials" class="bg-card">
+            <section id="about" class="bg-card">
+                <div class="section-container">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h2 class="section-headlines">About Us</h2>
+                            <p class="mt-4 text-muted-foreground leading-relaxed">
+                                RP Landscaping is a locally owned and operated lawn care and landscaping company proudly serving Central Massachusetts. We're committed to keeping your property looking its best — season after season.
+                            </p>
+                            <p class="mt-4 text-muted-foreground leading-relaxed">
+                                Whether you need a one-time cleanup or ongoing maintenance, our team brings the same level of care and attention to every job, big or small.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-4" style="font-family: 'Playfair Display', serif;">Service Areas</h3>
+                            <p class="text-muted-foreground leading-relaxed">
+                                Providing lawn care and landscaping services to <strong>Holden</strong>, <strong>Worcester</strong>, <strong>Sterling</strong>, and the surrounding Central Massachusetts area.
+                            </p>
+                            <ul class="mt-4 grid grid-cols-2 gap-2 text-sm text-muted-foreground" itemprop="areaServed">
+                                <li class="flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary flex-shrink-0">
+                                        <path d="M20 6 9 17l-5-5"></path>
+                                    </svg>
+                                    Holden
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary flex-shrink-0">
+                                        <path d="M20 6 9 17l-5-5"></path>
+                                    </svg>
+                                    Worcester
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary flex-shrink-0">
+                                        <path d="M20 6 9 17l-5-5"></path>
+                                    </svg>
+                                    Sterling
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary flex-shrink-0">
+                                        <path d="M20 6 9 17l-5-5"></path>
+                                    </svg>
+                                    Paxton
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary flex-shrink-0">
+                                        <path d="M20 6 9 17l-5-5"></path>
+                                    </svg>
+                                    Rutland
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary flex-shrink-0">
+                                        <path d="M20 6 9 17l-5-5"></path>
+                                    </svg>
+                                    Shrewsbury
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary flex-shrink-0">
+                                        <path d="M20 6 9 17l-5-5"></path>
+                                    </svg>
+                                    Grafton
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary flex-shrink-0">
+                                        <path d="M20 6 9 17l-5-5"></path>
+                                    </svg>
+                                    & Surrounding Towns
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="testimonials">
                 <div class="section-container">
                     <div class="text-center">
                         <h2 class="section-headlines">What Our Clients Say</h2>
@@ -89,7 +220,7 @@
                     <div class="reviews-container grid-containment"></div>
             </section>
 
-            <section id="portfolio">
+            <section id="portfolio" class="bg-card">
                 <div class="section-container">
                     <div class="text-center">
                         <h2 class="section-headlines">Our Work</h2>
@@ -102,13 +233,13 @@
                 </div>
             </section>
 
-            <section id="contact" class="bg-card">
+            <section id="contact">
                 <div class="section-container">
                     <div class="grid md:grid-cols-2 gap-12">
                         <div>
                             <h2 class="section-headlines">Get your <b>Free</b> Quote</h2>
                             <p class="mt-4 text-muted-foreground">
-                                Fill out the form below or send us a text. We'd love to assist you and you lawn by providing a free, no-obligation quote.
+                                Fill out the form below or send us a text. We'd love to assist you and your lawn by providing a free, no-obligation quote.
                             </p>
                             <div class="mt-8 space-y-4">
                                 <a href="tel:+7745599448" class="contact-svgs text-primary-hover">
@@ -224,7 +355,7 @@
         <footer class="py-8">
             <div class="section-container flex flex-col sm:flex-row items-center justify-between">
                 <div class="flex items-center gap-2">
-                    <img src="images/RPLandscapingLogo8Transparent.png" alt="RP Landscaping Logo" class="object-contain filter logo-bottom" />
+                    <img src="images/RPLandscapingLogo8Transparent.png" alt="RP Landscaping - Reliable Local Landscaping Services in Central MA" class="object-contain filter logo-bottom" />
                 </div>
                 <div class="flex items-center gap-4 mt-4 sm:mt-0">
                     <a href="tel:+7745599448" class="text-sm hover:underline">
@@ -256,11 +387,11 @@
     <div class="relative w-full max-w-4xl mx-auto">
         <div class="relative w-full aspect-[4/3] overflow-hidden rounded-lg cursor-ew-resize select-none comparison-container group">
             <!-- After Image (Background) -->
-            <img class="absolute top-0 left-0 w-full h-full object-cover after-image" src="" alt="After" />
+            <img class="absolute top-0 left-0 w-full h-full object-cover after-image" src="" alt="" />
 
             <!-- Before Image (Foreground, clipped) -->
             <div class="absolute top-0 left-0 h-full w-1/2 overflow-hidden before-container border-r-2 border-white">
-                <img class="absolute top-0 left-0 h-full max-w-none object-cover before-image" src="" alt="Before" />
+                <img class="absolute top-0 left-0 h-full max-w-none object-cover before-image" src="" alt="" />
             </div>
 
             <!-- Slider Handle -->
@@ -284,14 +415,14 @@
 </template>
 
 <template class="service-template">
-    <li class="flex items-start gap-4">
+    <li class="flex items-start gap-4" itemscope itemtype="https://schema.org/Service">
         <!-- Specific color is easier to achieve with SVG tag over SVG image -->
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-primary mt-1 flex-shrink-0">
             <path d="M20 6 9 17l-5-5"></path>
         </svg>
         <div>
-            <h3 class="service-headline text-2xl"></h3>
-            <p class="service-description mt-1 text-muted-foreground"></p>
+            <h3 class="service-headline text-2xl" itemprop="name"></h3>
+            <p class="service-description mt-1 text-muted-foreground" itemprop="description"></p>
         </div>
     </li>
 </template>

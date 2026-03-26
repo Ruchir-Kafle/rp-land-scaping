@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+User-agent: Googlebot
+User-agent: GPTBot
+User-agent: Bingbot
+Allow: /
+
+User-agent: AhrefsBot
+User-agent: SemrushBot
+Disallow: /
+
+Sitemap: https://rplandscaping.org/sitemap.xml
