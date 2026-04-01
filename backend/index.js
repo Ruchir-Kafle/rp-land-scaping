@@ -51,7 +51,9 @@ app.post("/submitForm", (req, res) => {
   console.log(req.body)
 
   const { name, email, phone, message } = req.body;
-  if (!name || !email || !phone || !message) {
+
+  if (!name || !message) {
+    console.log("Sending 400: name or message missing");
     return res.sendStatus(400);
   }
 
