@@ -79,6 +79,10 @@ app.post("/deleteEntry", (req, res) => {
   return res.sendStatus(200);
 })
 
+app.get("/google91d8780eb11f17d3.html", (req, res) => {
+  res.send("google-site-verification: google91d8780eb11f17d3.html");
+});
+
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });
