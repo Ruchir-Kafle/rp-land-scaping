@@ -25,7 +25,7 @@ const imagesPath = "./images/";
 const whyUs = {
     "Affordable Pricing": ["money-svgrepo-com.svg", "We provide top-quality landscaping without the inflated costs. No oversized trucks, no corporate overhead—just great work at a fair price."],
     "Personalized Experience": ["people-svgrepo-com.svg", "With smaller crews and fewer houses per week, we give each property the attention it deserves. Every yard gets the care and detail that makes it stand out."],
-    "Support Local Entrepreneurship": ["cycle-svgrepo-com.svg", "We’re a team of hardworking high school and college students from the community. 100% of profit goes to local entrepreneurship with 0% going to a corprate job."]
+    "Support Local Entrepreneurship": ["cycle-svgrepo-com.svg", "We’re a team of hardworking high school and college students from the community. 100% of profit goes to local entrepreneurship with 0% going to a corporate job."]
 }
 
 const carousels = {
@@ -153,6 +153,12 @@ function generateCarousels() {
         afterImage.src = imagesPath + afterImgSrc;
         beforeImage.src = imagesPath + beforeImgSrc;
 
+        const towns = ["Holden", "Worcester", "Sterling"];
+        const townIndex = Object.keys(carousels).indexOf(carouselTitle) % towns.length;
+        const town = towns[townIndex];
+        afterImage.alt = `${carouselTitle} after service in ${town}, MA`;
+        beforeImage.alt = `${carouselTitle} before service in ${town}, MA`;
+
         caption.innerHTML = carouselTitle + " Before/After";
 
         carouselContainer.appendChild(cloneCarouselTemplate);
@@ -172,7 +178,7 @@ function generateWhyUs() {
 
         const newImage = document.createElement(`img`);
         newImage.src = imagesPath + whyUs[title][0];
-        newImage.alt = title + "icon";
+        newImage.alt = title + " - RP Landscaping";
         newImage.className = "why-us-svgs text-primary";
 
         whyUsMain.prepend(newImage);
@@ -247,14 +253,14 @@ async function handleFormSubmission(form) {
     const services = formData.getAll('services').join(', ');
 
     // Combine into a single message block for the backend storage
-    const combinedMessage = 
-    `Services: ${services}
+    const combinedMessage =
+        `Services: ${services}
     Preferred Contact: ${contactMethod}
     Address: ${address || 'Not provided'}
 
     Notes:
     ${userMessage}`
-    .trim();
+            .trim();
 
     const payload = {
         name,
